@@ -5,7 +5,6 @@ cockpit-session-recording \
 cockpit-dashboard \
 cockpit-packagekit \
 cockpit-bridge \
-cockpit-dashboard \
 cockpit-storaged \
 cockpit-system \
 sos 
