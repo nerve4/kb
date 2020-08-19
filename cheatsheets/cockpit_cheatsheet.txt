@@ -1,0 +1,28 @@
+
+sudo yum install -y cockpit-ws \
+cockpit-pcp \
+cockpit-session-recording \
+cockpit-dashboard \
+cockpit-packagekit \
+cockpit-bridge \
+cockpit-dashboard \
+cockpit-storaged \
+cockpit-system \
+sos 
+
+systemctl enable --now cockpit.socket && systemctl start cockpit
+
+
+cockpit-ws 			Cockpit Web Service
+cockpit-pcp			Cockpit PCP integration
+cockpit-session-recording	Cockpit Session Recording
+cockpit-bridge 		Cockpit bridge server-side component
+cockpit-dashboard 		Cockpit remote servers and dashboard
+cockpit-packagekit		Cockpit user interface for packages
+cockpit-storaged		Cockpit user interface for storage, using udisks
+cockpit-system			Cockpit admin interface package for configuring and 					troubleshooting a system
+
+
+Firewall
+sudo firewall-cmd --permanent --zone=public --add-service=cockpit
+sudo firewall-cmd --reload
