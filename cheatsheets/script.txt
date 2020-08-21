@@ -1,0 +1,22 @@
+Uncomplicated Firewall aka UFW
+
+In this scenario we will install and have a look how does UFW running and working.
+We will install it to ubuntu 20.04LTS but these are the steps on Kali Linux and Backbox.
+
+sudo vim /etc/default/ufw
+IPV6=yes
+
+sudo ufw disable
+sudo ufw enable
+sudo ufw status
+
+
+5minsDrill: Uncomplicated Firewall aka UFW
+
+Hey Yaa Everybody... This is a quick surfing with Uncomplicated Firewall aka UFW. We will run through on the main commands, configuration and features to see how does ufw work.
+
+
+Cheatsheet:
+https://github.com/nerve4/kb
+
+#5minsDrill, #UFW, #Uncomplicated Firewall, #Ubuntu, #Backbox, #Kali, #Security
