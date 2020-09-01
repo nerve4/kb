@@ -1,0 +1,8 @@
+---
+# tasks - main.yml for nerve4-aide
+
+- include: install_el7.yml
+  when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "7"
+
+- include: install_el8.yml
+  when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "8"

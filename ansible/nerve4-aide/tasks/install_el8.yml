@@ -1,0 +1,35 @@
+---
+# tasks - install_el8.yml for nerve4-aide
+
+- name: Install aide to the host
+  dnf: 
+    name: "aide"
+    state: present
+
+- name: Initialize AIDE
+  command: /usr/sbin/aide --init
+
+- name: stat aide.db.new.gz
+  stat: path=/var/lib/aide/aide.db.new.gz
+  register: aide_stat
+
+- name: Move aide.db.new.gz to /var/lib/aide/
+  command: mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz
+  when: aide_stat.stat.exists
+
+- name: Copy aide.j2 to remote host
+  template:
+    src: templates/aide.j2
+    dest: /etc/aide.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Automate AIDE check with Cron
+  cron:
+    name: "aide check"
+    weekday: "{{ aide_cron_day }}"
+    minute: "{{ aide_cron_min }}"
+    hour: "{{ aide_cron_hour }}"
+    user: "root"
+    job: "root /usr/sbin/aide --check"

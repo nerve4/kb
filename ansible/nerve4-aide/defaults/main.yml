@@ -1,0 +1,7 @@
+---
+# default variable for nerve4-aide
+
+## Automate AIDE Check
+aide_cron_day: "*"
+aide_cron_min: "05"
+aide_cron_hour: "4"
